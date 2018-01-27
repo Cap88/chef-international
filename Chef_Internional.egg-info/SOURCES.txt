@@ -1,0 +1,13 @@
+MANIFEST.in
+Chef_Internional.egg-info/PKG-INFO
+Chef_Internional.egg-info/SOURCES.txt
+Chef_Internional.egg-info/dependency_links.txt
+Chef_Internional.egg-info/requires.txt
+Chef_Internional.egg-info/top_level.txt
+chef/__init__.py
+chef/chef.py
+chef/schema.sql
+chef/static/scripts.js
+chef/static/styles.css
+chef/templates/index.html
+chef/templates/layout.html

@@ -1,0 +1,35 @@
+/* allow map to fill viewport */
+html, body, #mapid, .container-fluid
+{
+    /* height of these elements */
+    height: 100%;
+
+    /* no margin around these elements */
+    margin: 0;
+
+    /* disable scrollbars */
+    overflow: hidden;
+
+    /* no padding within these elements */
+    padding: 0;
+}
+
+main {
+	height: 100%;
+	margin-top: 50px;
+}
+
+#mapid {
+    height: calc(100% - 50px);
+    width: 100%;
+    margin-top: -50px !important;
+}
+
+.navbar {
+    margin-bottom: 0px;
+    border-radius: 0px;
+}
+
+#recipes-button {
+    margin-top: 10px;
+}

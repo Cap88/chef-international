@@ -1,0 +1,3 @@
+graft chef/templates
+graft chef/static
+include chef/schema.sql
