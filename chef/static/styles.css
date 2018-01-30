@@ -33,3 +33,31 @@ main {
 #recipes-button {
     margin-top: 10px;
 }
+
+.media-object {
+	height: 128px;
+	width: 128px;
+	border-radius: 10px;
+}
+
+#recipe-list {
+	overflow: scroll;
+}
+
+/* Important part */
+.modal-dialog{
+    overflow-y: initial !important
+}
+.modal-body{
+    height: 70vh;
+    overflow-y: auto;
+	overflow-x: hidden;
+}
+
+#loader {
+	margin-top: 40%;
+}
+
+.pagination {
+	margin: 0;
+}

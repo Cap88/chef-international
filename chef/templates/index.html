@@ -16,12 +16,16 @@
 		<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 		<h4 class="modal-title" id="myModalLabel">Recipes</h4>
 	  </div>
-	  <div class="modal-body">
-		...
+	  <div class="modal-body" id="recipe-list">
+		<img class="center-block" id="loader" alt='loading' src='/static/ajax-loader.gif'/>
 	  </div>
 	  <div class="modal-footer">
-		<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-		<button type="button" class="btn btn-primary">Save changes</button>
+		<nav aria-label="...">
+		  <ul class="pager">
+			<li><a href="#">Previous</a></li>
+			<li><a href="#">Next</a></li>
+		  </ul>
+		</nav>
 	  </div>
 	</div>
   </div>

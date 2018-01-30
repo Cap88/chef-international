@@ -55,14 +55,14 @@ def close_db(error):
 def index():
     """Render map."""
 	# if user reached route via POST (as by submitting a form via POST)
-    if request.method == "POST":
+#    if request.method == "POST":
 
         # request the recipes info via url
-        recipes = lookup()
+#        recipes = lookup()
 
     # else if user reached route via GET (as by clicking a link or via redirect)
-    else:
-        return render_template("index.html")
+#    else:
+    return render_template("index.html")
 
 @app.route("/about")
 def about():
@@ -79,9 +79,13 @@ def contact():
 @app.route("/recipes")
 def recipes():
     """Look up recipes for country."""
+    country = request.args.get("country")
+    results_from = int(request.args.get("pi")) * 10
+    results_to = int(results_from) + 10
+	
     # ensure parameters are present
     if not request.args.get("country"):
         raise RuntimeError("missing country")
 
-    recipes = lookup(request.args.get("country"))
+    recipes = lookup(country, results_from, results_to)
     return jsonify(recipes)

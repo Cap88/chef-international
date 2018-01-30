@@ -4,6 +4,7 @@
 
 var mymap;
 var country;
+var pageIndex = 0;
 
 // execute when the DOM is fully loaded
 $(function () {
@@ -26,26 +27,27 @@ $(function () {
       var geojson = L.geoJson(data, {style: myStyle}).addTo(mymap);
     
         geojson.eachLayer(function (layer) {
-            layer.bindPopup((country = layer.feature.properties.name) + '<div class="row"><button type="button" id="recipes-button" class="btn btn-default" data-toggle="modal" data-target="#myModal" onclick="showRecipes(country)">Show recipes</button>');
+            layer.bindPopup((country = layer.feature.properties.name) + '<div class="row"><button type="button" id="recipes-button" class="btn btn-default" data-toggle="modal" data-target="#myModal" onclick="showRecipes(' + "'" + country.toLowerCase() + "'" + ')">Show recipes</button>');
         });
     });
 
 });
 
 function showRecipes(country) {
-	$.getJSON(Flask.url_for("recipes"), "country=" + country)
+	document.getElementById("recipe-list").innerHTML = '<img class="center-block" id="loader" alt="loading" src="/static/ajax-loader.gif"/>';
+	var content = '';
+	
+	$.getJSON(Flask.url_for("recipes"), "country=" + country + '&pi=' + pageIndex)
 	.done(function( data, textStatus, jqXHR ){
 
 		// iterate over array of objects and create HTML template
-		$.each(data, function(i, {link, title}) {
-			console.log('test', data);
-			content += ( "<li><a href='" + data[i].link + "'>" + data[i].title + "</a></li>" );
-			if (i === 4) {
-				return false;
-			}
+		$.each(data.hits, function(i, item) {
+			console.log('test', item);
+			content += ('<div class="media"><div class="media-left"><a href="' + item.recipe.url  + '" target="_blank">' + '<img class="media-object" src="' + item.recipe.image + '"alt="recipe image"></a></div>' + '<div class="media-body"><h4 class="media-heading">' + item.recipe.label + '</h4><b>Ingredients: </b>' + item.recipe.ingredientLines + '<p><i>Tags: ' + item.recipe.healthLabels + '</i></p>' + '</div></div>');
 		})
-		// close tag
-		content += "</ul>";
+		
+		// paste contenstring in modal
+		document.getElementById("recipe-list").innerHTML = content;
 	})
 	.fail(function(jqXHR, textStatus, errorThrown) {
 
