@@ -1,6 +1,7 @@
 // configure eslint
 /*eslint-env jquery*/
 /* global L:false */
+/* global document:false */
 
 var mymap;
 var country;
@@ -30,6 +31,13 @@ $(function () {
             layer.bindPopup((this.country = layer.feature.properties.name) + '<div class="row"><button type="button" id="recipes-button" class="btn btn-default" data-toggle="modal" data-target="#myModal" onclick="showRecipes(' + "'" + country.toLowerCase() + "'" + ')">Show recipes</button>');
         });
     });
+	
+	$('#myModal').on('hide.bs.modal', function () { 
+		console.log('Fired at start of hide event!');
+		pageIndex = 0;
+		console.log(pageIndex);
+		document.getElementById('previous').className = 'disabled';
+	}); 
 
 });
 
@@ -43,7 +51,6 @@ function showRecipes(country) {
 
 		// iterate over array of objects and create HTML template
 		$.each(data.hits, function(i, item) {
-			console.log('test', item);
 			content += ('<div class="media"><div class="media-left"><a href="' + item.recipe.url  + '" target="_blank">' + '<img class="media-object" src="' + item.recipe.image + '"alt="recipe image"></a></div>' + '<div class="media-body"><h4 class="media-heading">' + item.recipe.label + '</h4><b>Ingredients: </b>' + item.recipe.ingredientLines + '<p><i>Tags: ' + item.recipe.healthLabels + '</i></p>' + '</div></div>');
 		})
 		
