@@ -1,0 +1,3 @@
+web: export FLASK_APP=chef
+web: export FLASK_DEBUG=false
+web: flask run
