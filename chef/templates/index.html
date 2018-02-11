@@ -1,7 +1,6 @@
 {% extends "layout.html" %}
 
 {% block title %}
-    test
 {% endblock %}
 
 {% block main %}
@@ -22,8 +21,8 @@
 	  <div class="modal-footer">
 		<nav aria-label="...">
 		  <ul class="pager">
-			<li><a href="#">Previous</a></li>
-			<li><a href="#">Next</a></li>
+			<li id="previous" class="disabled"><a onclick="updatePagination(-1)">Previous</a></li>
+			<li><a onclick="updatePagination(1)">Next</a></li>
 		  </ul>
 		</nav>
 	  </div>

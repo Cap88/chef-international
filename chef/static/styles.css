@@ -12,6 +12,8 @@ html, body, #mapid, .container-fluid
 
     /* no padding within these elements */
     padding: 0;
+	
+	font-family: 'Open Sans', sans-serif;
 }
 
 main {
@@ -48,6 +50,7 @@ main {
 .modal-dialog{
     overflow-y: initial !important
 }
+
 .modal-body{
     height: 70vh;
     overflow-y: auto;
@@ -60,4 +63,13 @@ main {
 
 .pagination {
 	margin: 0;
+}
+
+a {
+	cursor: pointer;
+}
+
+#pasta {
+	max-width: 100%;
+	border-radius: 10px;
 }
