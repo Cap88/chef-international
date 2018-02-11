@@ -1,1 +1,1 @@
-web: gunicorn chef:app
+web: gunicorn setup:app
