@@ -77,3 +77,16 @@ a {
 .disabled {
 	pointer-events: none;
 }
+
+@media only screen and (max-width: 768px) {
+	.modal-body{
+		height: 60vh;
+		overflow-y: auto;
+		overflow-x: hidden;
+	}
+	
+	.media-body > p {
+		visibility: hidden;
+		height: 0;
+	}
+}
