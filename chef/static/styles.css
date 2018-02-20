@@ -42,23 +42,15 @@ main {
 	border-radius: 10px;
 }
 
+/*
 #recipe-list {
 	overflow: scroll;
 }
+*/
 
 /* Important part */
 .modal-dialog{
     overflow-y: initial !important
-}
-
-.modal-body{
-    height: 70vh;
-    overflow-y: auto;
-	overflow-x: hidden;
-}
-
-#loader {
-	margin-top: 40%;
 }
 
 .pagination {
@@ -78,13 +70,7 @@ a {
 	pointer-events: none;
 }
 
-@media only screen and (max-width: 768px) {
-	.modal-body{
-		height: 60vh;
-		overflow-y: auto;
-		overflow-x: hidden;
-	}
-	
+@media only screen and (max-width: 768px) {	
 	.media-body > p {
 		visibility: hidden;
 		height: 0;
